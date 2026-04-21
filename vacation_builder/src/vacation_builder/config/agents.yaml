@@ -1,6 +1,6 @@
-researcher:
+plane_ticket_research:
   role: >
-    {topic} Senior Data Researcher
+    Skyscanner
   goal: >
     Uncover cutting-edge developments in {topic}
   backstory: >
