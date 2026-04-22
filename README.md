@@ -4,7 +4,7 @@ A multi-agent AI system that turns a few answers about your dream trip into a fu
 
 Built on [CrewAI](https://crewai.com). Seven specialist agents run in sequence, each handing their findings to the next.
 
-![VacationBuilder workflow](doc/workflow.png)
+![VacationBuilder workflow](docs/workflow.png)
 
 ## How it works
 
