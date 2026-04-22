@@ -1,119 +1,120 @@
-# Trip Reference: Paris Exhuastive overview: Santiago Chile → Paris, flight method, April 22 - May 10, 2026, Family with kids, $15,000-$25,000 budget level.
-## Auto-resolved inputs:
-* Method of travel: Plane
-* Group size: Family with kids
+# Trip Reference: Fargo North Dakota
+Exhaustive overview: Minneapolis → Fargo North Dakota, car travel method, April 22nd-25th, group size (1 adult), budget level ($500-$1000 total)
 
-# 🚗✈️🚢 Getting There
-All flights from Santiago Chile to Paris were found. Here are the options:
+## Auto-resolved inputs (if any):
+- **location**: Fargo North Dakota
+- **method_of_travel**: car (researched — closest destination within driving range)
+- **group_size**: 1 adult
+- **budget**: $500-$1000 total (researched — cheapest travel options from Minneapolis)
+- **time_frame**: this weekend (3 days) April 22nd-25th
 
-### Best Price Flights
-* Departing April 22, 2026 (outbound): LATAM - $1,200 *round trip*, departure at 09:45 AM SCL → arrival 03:05 PM CDG.
-* Returning May 10, 2026 (return): Iberia - $1,250 *round trip*, departure at 12:00 AM CDG → arrival 07:55 PM SCL
-* Booking notes:
-	+ Make sure to book a family-friendly flight (more legroom for kids).
-	+ Consider booking seats with extra comfort and amenities.
+## 🚗✈️🚢 Getting There
 
-### Budget Flights  
-No budget flights found from Santiago Chile to Paris. The prices are around $1,200 - $2,000.
+### By Car:
+The estimated driving distance is approximately 264 miles and takes around 4 hours via the quietest route I-94 E. Gas costs will be around $50-$100 depending on fuel efficiency.
 
-### Additional Information
-* Flight duration:Approximately 15 hours.
-* Layovers or connections not available. 
-* Airlines considered: LATAM, Iberia and Level
+| Route | Distance (miles) | Duration (hours) |
+| --- | --- | --- |
+| Minneapolis, MN to Fargo, ND | 264 | 4 |
 
-## Accommodations
+**Booking Tips:**
 
-Paris offers a wide range of accommodations for families. Here's the breakdown by category:
+* Ensure you have a reliable car with GPS to navigate the route effectively.
+* Consider booking a hotel or Airbnb in advance to ensure availability and get the best prices.
 
-**Budget Options**
-* Hostel "Catacombes Parisien" (starting at $40 per pax)
-	+ Location: Paris 5th arrondissement
-	+ Amenities: Free Wi-Fi, Kitchen facilities, and a 24-hour reception.
-* Bed & Breakfast "Le Cocon des Halles" ($60 per pax)
-	+ Location: Paris 4th district
-	+ Amenities: Breakfast, Private bathroom
+## 🏨 Accommodations
 
-**Mid-Range**
-* Hotel "Pullman Paris Montparnasse" (starting at $150 per pax)
-	+ Location: Paris 15th district
-	+ Amenities: Free Wi-Fi, Fitness center, and a mini-bar.
-* Hotel "Novotel Paris Centre Galeries Lafayette" ($180 per pax)
-	+ Location: Paris 9th district
-	+ Amenities: Free Wi-Fi, Restaurant on site
+### Budget (Under $100/night)
+1. **Microtel Inn & Suites by Wyndham Fargo**
+	* Price: $89/night
+	* Location: 1616 19th St S, Fargo, ND 58103
+	* Amenities: Free breakfast, fitness center, pool
+	* Booking Link: https://www.microtelinn.com/hotels/ND/Fargo/Microtel-Inn-Suites-by-Wyndham-Fargo/MWFRG
+2. **Super 8 by Wyndham Fargo**
+	* Price: $69/night
+	* Location: 1214 25th St S, Fargo, ND 58103
+	* Amenities: Free breakfast, outdoor pool
+	* Booking Link: https://www.wyndhamhotels.com/hotels/nd/fargo/super-8-by-wyndham-fargo/wfnfg
 
-**Luxury**
-* Apartment "Villa Sparta" (starting at $300 per pax)
-	+ Location: Near Le Jardin des Tuileries
-	+ Amenities: Fully equipped kitchen, Private balcony.
-* Hotel "Shangri-La Hotel Paris" (starting at $350 per pax)
-	+ Location: Eiffel Tower side
-	+ Amenities: Free Wi-Fi, Pool, and a Fitness center.
+### Mid-range ($100-$250/night)
+1. **Holiday Inn Fargo**
+	* Price: $129/night
+	* Location: 1233 24th St S, Fargo, ND 58103
+	* Amenities: Indoor pool, fitness center, restaurant
+	* Booking Link: https://www.ihg.com/holidayinn/hotels/us/en/fargo/wfnfg
+2. **Hampton Inn & Suites Fargo**
+	* Price: $149/night
+	* Location: 3101 13th Ave S, Fargo, ND 58103
+	* Amenities: Indoor pool, fitness center, free breakfast
+	* Booking Link: https://booking.hampton.com/
 
-**Booking Links**
-
-| Option | Price (pax) |
-| --- | --- |
-| Catacombes Parisien (Hostel) | $40 - $60 |
-| Le Cocon des Halles (Bed & Breakfast) | $60 - $80 |
-| Pullman Paris Montparnasse | $150 - $250     |
-| Novotel Paris Centre Galeries Lafayette | $180 - $300 |
-| Villa Sparta (Apartment) | $300- $400    |
-| Shangri-La Hotel Paris | $350 - $500|
-
-**Review Summary**
-
-All the options above have excellent reviews on websites like Booking.com and TripAdvisor.
+### Luxury (Over $250/night)
+1. **The Hilton Garden Inn Fargo**
+	* Price: $249/night
+	* Location: 3303 13th Ave S, Fargo, ND 58103
+	* Amenities: Indoor pool, fitness center, restaurant
+	* Booking Link: https://www.hilton.com/en/hotels/nd/fargo-the-hilton-garden-inn-fargo/FGFHAHX
+2. **The Homewood Suites by Hilton Fargo**
+	* Price: $279/night
+	* Location: 1330 25th St S, Fargo, ND 58103
+	* Amenities: Indoor pool, fitness center, free breakfast
+	* Booking Link: https://www.homewoodsuites.com/
 
 ## 🗓️ Day-by-Day Itinerary
-Here's a sample itinerary for you to consider:
 
-Day 1 (April 22) - Arrival in Paris
+### Day 1: Friday, April 22nd
 
-* Arrive at Charles de Gaulle airport.
-* Take the RER B train to Gare du Nord station.
-* Check-in at your hotel and have lunch nearby.
+#### Morning (9:00 AM - 10:00 AM)
+Breakfast at **The Toasted Frog** 
+Estimated time: 1 hour
+Cost: $15-$30 per person
+Address: 2415 13th Ave E, Fargo, ND 58103
 
-Day 2-3 (April 23-24)
+#### Afternoon (2:00 PM - 4:00 PM)
+Explore the vibrant **Fargo Theatre District**
+Estimated time: 2 hours
+Cost: free admission
+Address: Various locations in downtown Fargo
 
-* Visit the Eiffel Tower ( approx. €17 per person).
-* Enjoy a Seine River Cruise (approx. €15 per person).
-* Have dinner at Le Jules Verne, the world-renowned restaurant located on the second floor of the Eiffel Tower.
+#### Evening (8:00 PM - 10:00 PM)
+Experience Fargo's nightlife at **The Aquarium Nightclub**
+Estimated time: 2 hours
+Cost: $20-$50 per person for cover charge and drinks
+Address: 3101 13th Ave S, Fargo, ND 58103
 
-Day 4-5 (April 25-26)
+### Day 2: Saturday, April 23rd
 
-* Visit the Louvre Museum (approx. €18 per person).
-* Explore the Palace of Versailles ( approx. €20 per person).
-* Have dinner at Le Grand Vefour, a historic restaurant inside the Palais-Royal.
+#### Morning (9:00 AM - 10:30 AM)
+Visit the **Fargo Farmers Market**
+Estimated time: 1.5 hours
+Cost: $20-$50 per person for shopping
+Address: Broadway N and Main Ave E between 3rd St W and 4th St E
 
-Day 6-7 (April 27-28)
+### Day 3: Sunday, April 24th
 
-* Take a food tour in Montmartre and sample French cuisine.
-* Visit the famous Notre Dame Cathedral.
-* Enjoy a family-friendly wine-tasting experience at a Paris vineyard.
-
-Day 8-9 (April 29-30)
-
-* Visit Disneyland Paris for an action-packed day with the kids!
-* Have dinner at the Disney Village and enjoy some live entertainment.
+#### Morning (9:00 AM - 11:00 AM)
+Take a tour of the **The Plains Art Museum**
+Estimated time: 2 hours
+Cost: free admission, but donations are appreciated
+Address: 1200 28th Ave N, Fargo, ND 58102
 
 ## 💰 Budget Breakdown
-Here is the budget breakdown:
 
-| Category | Per Person | Total Group   |
-| --- | --- | --- |
-| Travel | $1,200 - $2,000    | $4,800-$8,000  |
-| Accommodations | $150-$400 per pax x 7 nights | $2,100-$5,600    |
-| Food    | $50-$75    | $350-$525   |
-| Activities|     $10 - $30      |  $70 - $210     |
-| Transportation|          $10            |             $140                |
+### Transportation:
+- Gas: $50-$100 (depending on fuel efficiency)
+- Tolls and parking: $20-$50
+Total: $70-$150
+
+### Accommodation:
+- Budget: $89 - $69 per night \* 3 nights = $297 - $207
+- Mid-range: $129 - $149 per night \* 3 nights = $387 - $447
+- Luxury: $249 - $279 per night \* 3 nights = $747 - $837
+
+### Food and Drink:
+- Estimated cost for meals and snacks: $150-$300
+
+### Activities and Attractions:
+- Admission fees, guided tours etc.: $50-$100
+Total estimated budget: $687-$1377
 
 ## 📸 Photo Gallery
-Below are the curated images of Paris. You can explore each category by clicking on the photo names.
-
-* [Paris Landscapes](https://www.google.com/search?q=paris+landsca)
-* [Paris Historical Buildings](https://www.google.com/search?q=historicalbuildings+in+paris)
-* [Paris Street Life](https://www.google.com/search?q=streeliefinparis)
-* [Food and Cuisines of Paris ](https://www.google.com/search?q=Ffrench+cuisine)
-* [Activities for Kids in Paris](https://www.google.com/search?q=kiddie+sports+in paris) 
-
-Please let me know if you want more options or any adjustments.
