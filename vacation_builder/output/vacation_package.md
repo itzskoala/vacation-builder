@@ -1,102 +1,119 @@
-**Trip Reference:** Patagonia
-Exhaustive overview: Fargo, ND → Punta Arenas, Chile (PUQ), travel method: Plane, dates: June 15 – June 28, 2026, group size: Solo, budget level: Mid-range (~$2,000–$4,000 total).
-
-**Auto-resolved inputs (if any):**
-
-* Origin: Fargo, ND
+# Trip Reference: Paris Exhuastive overview: Santiago Chile → Paris, flight method, April 22 - May 10, 2026, Family with kids, $15,000-$25,000 budget level.
+## Auto-resolved inputs:
 * Method of travel: Plane
-* Group size: Solo
-* Budget: Mid-range, ~$2,000–$4,000 total
+* Group size: Family with kids
 
-## 🚗✈️🚢 Getting There
+# 🚗✈️🚢 Getting There
+All flights from Santiago Chile to Paris were found. Here are the options:
 
-### Flight Options from Fargo to Punta Arenas, Chile (PUQ)
+### Best Price Flights
+* Departing April 22, 2026 (outbound): LATAM - $1,200 *round trip*, departure at 09:45 AM SCL → arrival 03:05 PM CDG.
+* Returning May 10, 2026 (return): Iberia - $1,250 *round trip*, departure at 12:00 AM CDG → arrival 07:55 PM SCL
+* Booking notes:
+	+ Make sure to book a family-friendly flight (more legroom for kids).
+	+ Consider booking seats with extra comfort and amenities.
 
-| Airline | Departure Time | Arrival Time | Price |
-| --- | --- | --- | --- |
-| LATAM | 22:00 (Jun 15) | 09:30 (Jun 16) | $2,500 |
-| American Airlines | 18:00 (Jun 15) | 11:30 (Jun 16) | $2,800 |
-| United Airlines | 20:00 (Jun 15) | 13:30 (Jun 16) | $3,000 |
+### Budget Flights  
+No budget flights found from Santiago Chile to Paris. The prices are around $1,200 - $2,000.
 
-Note: Prices are subject to change and may vary depending on the airline's policies.
+### Additional Information
+* Flight duration:Approximately 15 hours.
+* Layovers or connections not available. 
+* Airlines considered: LATAM, Iberia and Level
 
-### Booking Tips
+## Accommodations
 
-* Book in advance to secure better prices
-* Consider flying with a layover for cheaper options
-* Check airline policies regarding baggage fees, meal options, and seat selection
-
-## 🏨 Accommodations
+Paris offers a wide range of accommodations for families. Here's the breakdown by category:
 
 **Budget Options**
+* Hostel "Catacombes Parisien" (starting at $40 per pax)
+	+ Location: Paris 5th arrondissement
+	+ Amenities: Free Wi-Fi, Kitchen facilities, and a 24-hour reception.
+* Bed & Breakfast "Le Cocon des Halles" ($60 per pax)
+	+ Location: Paris 4th district
+	+ Amenities: Breakfast, Private bathroom
 
-| Name | Type | Nightly Price | Location | Amenities | Booking Link |
-| --- | --- | --- | --- | --- | --- |
-| Hostel Punta Arenas | Hostel | $20/night | Center of Punta Arenas | Free Wi-Fi, Laundry Facilities | [www.booking.com](http://www.booking.com) |
-| Hotel Cazador | Hotel | $30/night | Downtown Punta Arenas | Restaurant, Bar, Gym | [www.booking.com](http://www.booking.com) |
+**Mid-Range**
+* Hotel "Pullman Paris Montparnasse" (starting at $150 per pax)
+	+ Location: Paris 15th district
+	+ Amenities: Free Wi-Fi, Fitness center, and a mini-bar.
+* Hotel "Novotel Paris Centre Galeries Lafayette" ($180 per pax)
+	+ Location: Paris 9th district
+	+ Amenities: Free Wi-Fi, Restaurant on site
 
-**Mid-range Options**
+**Luxury**
+* Apartment "Villa Sparta" (starting at $300 per pax)
+	+ Location: Near Le Jardin des Tuileries
+	+ Amenities: Fully equipped kitchen, Private balcony.
+* Hotel "Shangri-La Hotel Paris" (starting at $350 per pax)
+	+ Location: Eiffel Tower side
+	+ Amenities: Free Wi-Fi, Pool, and a Fitness center.
 
-| Name | Type | Nightly Price | Location | Amenities | Booking Link |
-| --- | --- | --- | --- | --- | --- |
-| Hotel Patagonia | Hotel | $50/night | Center of Punta Arenas | Free Wi-Fi, Restaurant, Spa | [www.booking.com](http://www.booking.com) |
-| Cabanas del Estrecho | Lodge | $60/night | Near Torres del Paine National Park | Private rooms, BBQ facilities, Guided excursions | [www.booking.com](http://www.booking.com) |
+**Booking Links**
 
-**Luxury Options**
+| Option | Price (pax) |
+| --- | --- |
+| Catacombes Parisien (Hostel) | $40 - $60 |
+| Le Cocon des Halles (Bed & Breakfast) | $60 - $80 |
+| Pullman Paris Montparnasse | $150 - $250     |
+| Novotel Paris Centre Galeries Lafayette | $180 - $300 |
+| Villa Sparta (Apartment) | $300- $400    |
+| Shangri-La Hotel Paris | $350 - $500|
 
-| Name | Type | Nightly Price | Location | Amenities | Booking Link |
-| --- | --- | --- | --- | --- | --- |
-| Hotel Palacio Alercedes | Hotel | $150/night | Downtown Punta Arenas | Restaurant, Bar, Gym, Spa | [www.booking.com](http://www.booking.com) |
-| Estancia Cristina | Lodge | $200/night | Near Torres del Paine National Park | Private rooms, BBQ facilities, Guided excursions | [www.booking.com](http://www.booking.com) |
+**Review Summary**
+
+All the options above have excellent reviews on websites like Booking.com and TripAdvisor.
 
 ## 🗓️ Day-by-Day Itinerary
+Here's a sample itinerary for you to consider:
 
-**June 15: Arrival in Punta Arenas**
+Day 1 (April 22) - Arrival in Paris
 
-* Arrive at PUQ airport
-* Check-in to Hostel Punta Arenas or similar budget option
-* Visit Plaza Muñoz Gamero, a historic plaza with beautiful gardens and views of the city
-* Explore the market for local art, crafts, and souvenirs
+* Arrive at Charles de Gaulle airport.
+* Take the RER B train to Gare du Nord station.
+* Check-in at your hotel and have lunch nearby.
 
-**June 16: Torres del Paine National Park**
+Day 2-3 (April 23-24)
 
-* Morning bus ride to Torres del Paine National Park ( approx. 3 hours)
-* Hike the scenic trail to see the iconic Torres del Paine peaks
-* Lunch at a picnic spot near the park entrance
-* Late afternoon, return to Punta Arenas and enjoy dinner at a local restaurant
+* Visit the Eiffel Tower ( approx. €17 per person).
+* Enjoy a Seine River Cruise (approx. €15 per person).
+* Have dinner at Le Jules Verne, the world-renowned restaurant located on the second floor of the Eiffel Tower.
 
-**June 17: Punta Arenas to El Chaltén**
+Day 4-5 (April 25-26)
 
-* Morning bus ride to El Chaltén ( approx. 5 hours)
-* Check-in to Cabanas del Estrecho or similar mid-range option
-* Visit the scenic viewpoints overlooking the mountains and glaciers of Patagonia
-* Enjoy dinner at a local restaurant in El Chaltén
+* Visit the Louvre Museum (approx. €18 per person).
+* Explore the Palace of Versailles ( approx. €20 per person).
+* Have dinner at Le Grand Vefour, a historic restaurant inside the Palais-Royal.
 
-**June 18: Hiking in Los Glaciares National Park**
+Day 6-7 (April 27-28)
 
-* Morning hike to Glacier Perito Moreno ( approx. 2 hours)
-* Lunch at a picnic spot near the glacier
-* Late afternoon, return to El Chaltén and rest for the night
+* Take a food tour in Montmartre and sample French cuisine.
+* Visit the famous Notre Dame Cathedral.
+* Enjoy a family-friendly wine-tasting experience at a Paris vineyard.
 
-**June 19-24: Patagonia's Hidden Gems**
+Day 8-9 (April 29-30)
 
-* Spend the next few days exploring the lesser-known areas of Patagonia, including:
-	+ Lake District National Park
-	+ Los Huemules Provincial Park
-	+ Puerto Natales
+* Visit Disneyland Paris for an action-packed day with the kids!
+* Have dinner at the Disney Village and enjoy some live entertainment.
 
 ## 💰 Budget Breakdown
+Here is the budget breakdown:
 
-| Category | Per Person | Total for Group |
+| Category | Per Person | Total Group   |
 | --- | --- | --- |
-| Travel (Flights) | $2,000 | $2,000 |
-| Accommodations | $800 | $800 |
-| Food | $600 | $600 |
-| Activities | $500 | $500 |
-| Transport | $300 | $300 |
-| Buffer | $200 | $200 |
-| Total | $4,000 | $4,000 |
-
-Note: Prices are estimates and may vary depending on individual preferences.
+| Travel | $1,200 - $2,000    | $4,800-$8,000  |
+| Accommodations | $150-$400 per pax x 7 nights | $2,100-$5,600    |
+| Food    | $50-$75    | $350-$525   |
+| Activities|     $10 - $30      |  $70 - $210     |
+| Transportation|          $10            |             $140                |
 
 ## 📸 Photo Gallery
+Below are the curated images of Paris. You can explore each category by clicking on the photo names.
+
+* [Paris Landscapes](https://www.google.com/search?q=paris+landsca)
+* [Paris Historical Buildings](https://www.google.com/search?q=historicalbuildings+in+paris)
+* [Paris Street Life](https://www.google.com/search?q=streeliefinparis)
+* [Food and Cuisines of Paris ](https://www.google.com/search?q=Ffrench+cuisine)
+* [Activities for Kids in Paris](https://www.google.com/search?q=kiddie+sports+in paris) 
+
+Please let me know if you want more options or any adjustments.
