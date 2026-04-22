@@ -8,6 +8,7 @@ dependencies = [
     "crewai[tools]==1.14.2",
     "google-search-results",
     "serpapi>=1.0.2",
+    "markdown>=3.5",
 ]
 
 [project.scripts]

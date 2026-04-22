@@ -28,7 +28,18 @@ class FlightSearchInput(BaseModel):
     )
     currency: str = Field(
         default="USD",
-        description="Currency code for prices (e.g. 'USD', 'EUR', 'CLP', 'INR')"
+        description="Currency code for prices (e.g. 'USD', 'EUR', 'CLP', 'INR', 'MXN')"
+    )
+    gl: str = Field(
+        default="us",
+        description=(
+            "Google country code to simulate searching from a specific region. "
+            "Different regions surface different airline deals, local fares, and pricing. "
+            "Examples: 'us' (United States), 'cl' (Chile), 'mx' (Mexico), 'br' (Brazil), "
+            "'ar' (Argentina), 'gb' (United Kingdom), 'de' (Germany), 'jp' (Japan), 'in' (India). "
+            "Use this to find regional pricing differences — the same flight is often cheaper "
+            "when searched from the destination country or the airline's home market."
+        )
     )
 
 
@@ -36,7 +47,12 @@ class GoogleFlightsTool(BaseTool):
     name: str = "Google Flights Search"
     description: str = (
         "Search for round-trip flights using Google Flights. "
-        "Provide IATA airport or city codes, travel dates, and preferred currency. "
+        "Provide IATA airport or city codes, travel dates, preferred currency, and a country "
+        "code (gl) to simulate searching from a specific region. "
+        "The same flight can cost significantly less when searched from a different country — "
+        "for example, a route served by a Latin American carrier may be cheaper when searched "
+        "from that carrier's home market. Call this tool multiple times with different gl/currency "
+        "combinations to compare regional prices and find the best deal. "
         "Returns top flight options with airline, duration, stops, and price."
     )
     args_schema: Type[BaseModel] = FlightSearchInput
@@ -48,6 +64,7 @@ class GoogleFlightsTool(BaseTool):
         outbound_date: str,
         return_date: str,
         currency: str = "USD",
+        gl: str = "us",
     ) -> str:
         try:
             client = _get_client()
@@ -59,6 +76,7 @@ class GoogleFlightsTool(BaseTool):
                 "return_date": return_date,
                 "currency": currency,
                 "hl": "en",
+                "gl": gl,
                 "type": "1",  # round trip
             })
 
@@ -84,7 +102,7 @@ class GoogleFlightsTool(BaseTool):
                     )
 
                 output.append(
-                    f"Option {i}: ${price} | Total Duration: {total_duration} min\n"
+                    f"Option {i}: {price} {currency} | Region: {gl.upper()} | Total Duration: {total_duration} min\n"
                     + "\n".join(leg_summaries)
                 )
 
@@ -204,8 +222,8 @@ class GoogleImagesTool(BaseTool):
             output = []
             for i, img in enumerate(images[:num_results], 1):
                 title = img.get("title", "Untitled")
-                # prefer original high-res URL, fall back to thumbnail
-                url = img.get("original", "") or img.get("thumbnail", "")
+                # prefer thumbnail (Google-proxied, reliably embeddable); fall back to original
+                url = img.get("thumbnail", "") or img.get("original", "")
                 source = img.get("source", "")
 
                 if url:

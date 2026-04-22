@@ -28,9 +28,9 @@ class VacationBuilder():
         )
 
     @agent
-    def plane_ticket_research(self) -> Agent:
+    def travel_researcher(self) -> Agent:
         return Agent(
-            config=self.agents_config['plane_ticket_research'],  # type: ignore[index]
+            config=self.agents_config['travel_researcher'],  # type: ignore[index]
             verbose=True,
             tools=[GoogleFlightsTool(), SerperDevTool()],
         )
@@ -74,13 +74,6 @@ class VacationBuilder():
             verbose=True,
         )
 
-    @agent
-    def trip_storyteller(self) -> Agent:
-        return Agent(
-            config=self.agents_config['trip_storyteller'],  # type: ignore[index]
-            verbose=True,
-            tools=[],
-        )
 
     # Tasks
 
@@ -91,9 +84,9 @@ class VacationBuilder():
         )
 
     @task
-    def flight_research_task(self) -> Task:
+    def travel_research_task(self) -> Task:
         return Task(
-            config=self.tasks_config['flight_research_task'],  # type: ignore[index]
+            config=self.tasks_config['travel_research_task'],  # type: ignore[index]
         )
 
     @task
@@ -126,11 +119,11 @@ class VacationBuilder():
             config=self.tasks_config['final_package_task'],  # type: ignore[index]
         )
 
-    @task
-    def storytelling_task(self) -> Task:
-        return Task(
-            config=self.tasks_config['storytelling_task'],  # type: ignore[index]
-        )
+    # @task
+    # def storytelling_task(self) -> Task:
+    #     return Task(
+    #         config=self.tasks_config['storytelling_task'],  # type: ignore[index]
+    #     )
 
     # Crew
     @crew
@@ -140,5 +133,6 @@ class VacationBuilder():
             agents=self.agents,   # auto-collected via @agent decorators
             tasks=self.tasks,     # auto-collected via @task decorators
             process=Process.sequential,
+            # max_iter=10,
             verbose=True,
         )
