@@ -1,17 +1,281 @@
-research_task:
+resolve_inputs_task:
   description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is {current_year}.
-  expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
-  agent: researcher
+    You are the first agent to run. Your job is to audit all user-provided inputs and resolve
+    any that are missing, blank, "N/A", or too vague to act on — using live web research only.
+    Nothing is hardcoded. Every resolved value must come from what you find online.
 
-reporting_task:
-  description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
+    Inputs to audit:
+    - location: {location}
+    - origin: {origin}
+    - method_of_travel: {method_of_travel}
+    - group_size: {group_size}
+    - budget: {budget}
+    - time_frame: {time_frame}
+    - activity_preferences: {activity_preferences}
+    - extra_preferences: {extra_prefrences}
+
+    For each input that is missing or N/A, search the web to find the best real-world option.
+    Examples of how to resolve:
+    - location is N/A: search "best vacation destinations from {origin}" or "top travel destinations [current season] [year]", pick the top result that fits the group and any known preferences.
+    - budget is N/A: search "average vacation cost to [resolved location] for [group_size]" and pick a realistic range.
+    - method_of_travel is N/A: search "best way to travel from {origin} to [resolved location]" and pick the most practical option.
+    - activity_preferences is N/A: search "top things to do in [resolved location]" and summarize the most popular categories.
+    - time_frame is N/A: search "best time to visit [resolved location]" and pick an upcoming optimal travel window.
+    - group_size is N/A: default to 2 adults but note it in the output.
+
+    Inputs that are already provided and clear should be passed through unchanged.
+    Every resolved value must include a brief justification citing what you found in your research.
   expected_output: >
-    A fully fledged report with the main topics, each with a full section of information.
-    Formatted as markdown without '```'
-  agent: reporting_analyst
+    A structured markdown block titled "## Resolved Trip Parameters" listing every input field
+    with its final value. Mark user-provided values as "(provided)" and autonomously resolved
+    values as "(researched)" with a one-line justification.
+
+    Example format:
+    ## Resolved Trip Parameters
+    - **location**: Japan (researched — ranked #1 destination from US in spring 2026 per [source])
+    - **origin**: New York, USA (provided)
+    - **method_of_travel**: Plane (researched — only practical option; ~14hr direct flights available)
+    - **group_size**: Couple, 2 adults (provided)
+    - **budget**: Mid-range, ~$4,000–$6,000 total (researched — avg cost for 7-day Japan trip per [source])
+    - **time_frame**: April 20 – April 27, 2026 (researched — peak cherry blossom season per [source])
+    - **activity_preferences**: temples, street food, anime culture (researched — top activities in Japan per [source])
+    - **extra_preferences**: none specified (provided)
+  agent: trip_input_resolver
+
+flight_research_task:
+  description: >
+    Use the resolved parameters from resolve_inputs_task context as your source of truth for all
+    field values. Do not use raw template variables if they conflict with the resolved values.
+
+    Research and compile the best available travel options from the resolved origin to the resolved
+    location for the resolved travel dates and group size.
+    Factor in group size when evaluating pricing and seat availability.
+    Use the resolved method_of_travel. If not by plane, research the best options for that method instead.
+    Search across all major booking platforms and look for any deals or pricing tricks
+    (e.g., billing location changes, layover savings).
+    Include direct and connecting options where relevant.
+  expected_output: >
+    A detailed travel report containing:
+    - Top 5 recommended travel options with carrier/route, duration, and estimated price (per person and total for group)
+    - Tips for finding the cheapest fares for this specific route
+    - Recommended booking platforms or strategies
+    - Best times to book and any seasonal pricing notes
+    Formatted as markdown.
+  agent: plane_ticket_research
+  context:
+    - resolve_inputs_task
+
+budget_task:
+  description: >
+    Use the resolved parameters from resolve_inputs_task context as your source of truth.
+    Create a comprehensive vacation budget for the resolved location over the resolved time_frame
+    based on the resolved budget level and group size.
+    All cost estimates should reflect the full group, with per-person breakdowns where helpful.
+    Account for flights, accommodations, food, activities, local transportation, and a buffer for unexpected expenses.
+    Provide breakdowns across strict, moderate, and comfortable spending tiers where applicable.
+  expected_output: >
+    A detailed budget report containing:
+    - Total estimated cost range for the trip (full group and per person)
+    - Day-by-day cost estimate broken down by category (food, transport, activities, etc.)
+    - Comparison of strict vs. moderate vs. comfortable spending scenarios
+    - Money-saving tips specific to the destination
+    - Currency information and recommended payment methods
+    Formatted as markdown.
+  agent: financial_advisor
+  context:
+    - resolve_inputs_task
+
+
+activities_task:
+  description: >
+    Use the resolved parameters from resolve_inputs_task context as your source of truth.
+    Plan a full day-by-day itinerary for the resolved location spanning the resolved time_frame,
+    tailored to the resolved group_size and resolved activity_preferences.
+    Consider current events, tourist season, climate, local customs, and variety of experiences.
+    Include a mix of popular landmarks, hidden gems, restaurants, and cultural experiences.
+    Work within the budget constraints provided by budget_task context.
+  expected_output: >
+    A detailed day-by-day itinerary containing:
+    - Morning, afternoon, and evening plans for each day
+    - Recommended restaurants and local food experiences
+    - Must-see landmarks and off-the-beaten-path spots aligned with resolved activity preferences
+    - Estimated time and cost per activity (cross-referenced with budget_task output)
+    - Practical tips (best time to visit each spot, reservations needed, etc.)
+    Formatted as markdown.
+  agent: activities_planner
+  context:
+    - resolve_inputs_task
+    - budget_task
+
+
+accommodations_task:
+  description: >
+    Use the resolved parameters from resolve_inputs_task context as your source of truth.
+    Find and compare the best accommodations in the resolved location for the resolved time_frame,
+    group_size, and budget level.
+    Search across hotels, Airbnbs, and hostels. Factor in proximity to planned activities
+    (from activities_task context), reviews, amenities, and overall value.
+    Present options across multiple budget tiers so the user has choices.
+  expected_output: >
+    A detailed accommodations report containing:
+    - Top 2-3 recommended options per tier (budget, mid-range, comfortable/luxury)
+    - For each option: name, type (hotel/Airbnb/hostel/etc.), location, nightly price, key amenities, and a brief review summary
+    - Recommended booking platforms and any discount tips
+    - Neighborhood notes (safety, proximity to attractions, local vibe)
+    Formatted as markdown.
+  agent: accommodations_finder
+  context:
+    - resolve_inputs_task
+    - activities_task
+
+photo_curation_task:
+  description: >
+    Use the resolved parameters from resolve_inputs_task context as your source of truth.
+    Use the provided photos API to pull high-quality images of the resolved location.
+    Query the API for: landscapes, landmarks, food and cuisine, culture and people, street life, and hidden gems.
+    Also pull images relevant to the resolved activity preferences.
+    Curate the best results from each category — prioritize variety, quality, and authenticity over quantity.
+  expected_output: >
+    A visual travel guide containing:
+    - A curated gallery organized by category (landscapes, landmarks, food, culture, street life, hidden gems)
+    - For each photo: the image URL, location name, and a one-line caption describing what makes it special
+    - A short written narrative (3-5 sentences) that captures the visual identity and atmosphere of the destination
+    - A "top 5 most photogenic spots" summary for travelers who want the best photo opportunities
+    Formatted as markdown with image links rendered inline.
+  agent: photographer
+  context:
+    - resolve_inputs_task
+
+final_package_task:
+  description: >
+    Compile the outputs from all specialist agents into a single structured vacation reference package.
+    Use the resolved parameters from resolve_inputs_task as the authoritative source for all
+    field values (location, dates, group size, budget, etc.) — not raw template variables.
+    Extract the full detail from each agent's output — this is the complete factual reference that the
+    storyteller agent will use next. Include everything: full itinerary, full budget breakdown, all
+    accommodation options, all flight options, and all photo embeds. Do not truncate or summarize.
+    If any parameters were researched and resolved automatically, include a note listing what was chosen.
+  expected_output: >
+    A comprehensive structured markdown document with the following sections:
+
+    # Trip Reference: [Resolved Location]
+    One-line overview: origin → destination, dates, group size, budget level.
+
+    > **Auto-resolved inputs (if any):** List any fields that were researched and filled in automatically.
+
+    ## ✈️ Travel Options
+    All top flight/travel options with carrier, route, duration, price per person, total price, and booking tips.
+
+    ## 🏨 Accommodations
+    All recommended options organized by tier (budget / mid-range / luxury): name, type, nightly price,
+    location, amenities, booking link, and a brief review summary.
+
+    ## 🗓️ Day-by-Day Itinerary
+    Full day-by-day itinerary with morning / afternoon / evening plans, restaurants, landmarks,
+    estimated cost per activity, and practical tips.
+
+    ## 💰 Budget Breakdown
+    Full budget table: Category | Per Person | Total for Group.
+    Rows: Travel, Accommodations, Food, Activities, Transport, Buffer, Total.
+    Include strict / moderate / comfortable tiers and money-saving tips.
+
+    ## 📸 Photo Gallery
+    All curated photo embeds from the photographer, organized by category, with captions.
+    Embed each image inline using markdown: ![caption](url)
+
+    Formatted as clean markdown.
+  agent: vacation_compiler
+  context:
+    - resolve_inputs_task
+    - flight_research_task
+    - budget_task
+    - activities_task
+    - accommodations_task
+    - photo_curation_task
+
+storytelling_task:
+  description: >
+    You are the final agent. Your job is to produce THE one and only output file for this trip —
+    a single, breathtaking markdown document that combines irresistible travel storytelling with
+    every practical detail the traveler needs.
+
+    Use all prior agent outputs as your source material. Do not leave anything out.
+
+    Structure your document as follows:
+    1. Open with a cinematic, emotionally charged hook (3-5 sentences) that transports the reader to
+       the destination. Make them feel they are already there — describe sights, smells, sounds, energy.
+       Write in second person ("you", "your").
+    2. Follow with a one-paragraph "why you need to go" section — use aspiration, FOMO, and vivid imagery
+       to make this trip feel unmissable. Be persuasive, not salesy.
+    3. Then seamlessly transition into the full trip details — all sections below must be present and complete.
+    4. Close with a short, punchy call to action — "The only thing left to do is book it."
+
+    All photo embeds must appear as actual inline markdown images: ![caption](url)
+    Do NOT reference separate files. This is the one and only document.
+  expected_output: >
+    A single, beautifully formatted markdown file containing:
+
+    # [Evocative Trip Title] — [Destination]
+
+    [Cinematic opening hook — 3-5 sentences in second person]
+
+    [Why you need to go — 1 persuasive paragraph]
+
+    ---
+
+    ## 🧭 Your Trip at a Glance
+    Quick-reference table: Destination | Origin | Dates | Group | Budget Level
+
+    > **Note:** Any auto-resolved inputs listed here.
+
+    ---
+
+    ## ✈️ Getting There
+    The best travel option highlighted with full details. Booking tips included.
+    Additional options listed below it.
+
+    ---
+
+    ## 🏨 Where You'll Stay
+    Top recommended accommodation for the budget tier — name, type, price, why it's perfect.
+    Additional options organized by tier below.
+
+    ---
+
+    ## 🗓️ Your Itinerary
+    Full day-by-day plan with morning / afternoon / evening structure, restaurant picks,
+    landmark highlights, estimated costs, and practical tips.
+
+    ---
+
+    ## 💰 Your Budget
+    Full budget table with per-person and group totals.
+    Spending tier comparison (strict / moderate / comfortable).
+    Money-saving tips.
+
+    ---
+
+    ## 📸 The Destination in Pictures
+    Inline photo gallery organized by category. Every photo embedded as ![caption](url).
+    Include the 3-5 sentence visual narrative and top 5 most photogenic spots list.
+
+    ---
+
+    ## 🌟 Don't Miss
+    5-7 bullet points — the absolute must-dos aligned with the group's preferences.
+
+    ---
+
+    *[Closing call to action — 1-2 punchy sentences]*
+
+    Formatted as polished, publish-ready markdown. No placeholder text. No references to other files.
+  agent: trip_storyteller
+  context:
+    - resolve_inputs_task
+    - flight_research_task
+    - budget_task
+    - activities_task
+    - accommodations_task
+    - photo_curation_task
+    - final_package_task
+  output_file: output/vacation_package.md

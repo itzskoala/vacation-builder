@@ -1,94 +1,52 @@
 #!/usr/bin/env python
 import sys
+import os
 import warnings
-
-from datetime import datetime
 
 from vacation_builder.crew import VacationBuilder
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
-# This main file is intended to be a way for you to run your
-# crew locally, so refrain from adding unnecessary logic into this file.
-# Replace with inputs you want to test with, it will automatically
-# interpolate any tasks and agents information
+
 
 def run():
     """
-    Run the crew.
+    Run the VacationBuilder crew.
+    Update the inputs below to test with different destinations and preferences.
     """
-    inputs = {
-        'topic': 'AI LLMs',
-        'current_year': str(datetime.now().year)
-    }
+    
+    print("Hey welcome! Let's build your Dream Vacation!\n")
+    print("If you have no prefrences, just type 'N/A' for any input and we'll work our magic ;)\n")
+    location = input("Where do you want to go? (e.g, country, city, town)\n")
+    origin = input("Where are you currently located?\n")
+    method_of_travel = input("How will you get there? (e.g, car, plane, cruise?)\n")
+    group_size = input("Who's going on this trip? (e.g. solo, couple, family with kids, group of friends)\n")
+    budget = input("What is your budget range? You can type in a number, range, or a description (e.g. Dirt Cheap, Low, Mid, High, or Splurge)\n")
+    time_frame = input("What is your time frame? (e.g. May 1 - May 10, 2026).\n")
+    activity_preferences = input("What kind of activities are you into? (e.g. beach, hiking, nightlife, museums, food tours)\n")
+    extra_prefrences = input("Is there anything else we should know about this trip?\n")
 
-    try:
-        VacationBuilder().crew().kickoff(inputs=inputs)
-    except Exception as e:
-        raise Exception(f"An error occurred while running the crew: {e}")
-
-
-def train():
-    """
-    Train the crew for a given number of iterations.
-    """
-    inputs = {
-        "topic": "AI LLMs",
-        'current_year': str(datetime.now().year)
-    }
-    try:
-        VacationBuilder().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
-
-    except Exception as e:
-        raise Exception(f"An error occurred while training the crew: {e}")
-
-def replay():
-    """
-    Replay the crew execution from a specific task.
-    """
-    try:
-        VacationBuilder().crew().replay(task_id=sys.argv[1])
-
-    except Exception as e:
-        raise Exception(f"An error occurred while replaying the crew: {e}")
-
-def test():
-    """
-    Test the crew execution and returns the results.
-    """
-    inputs = {
-        "topic": "AI LLMs",
-        "current_year": str(datetime.now().year)
-    }
-
-    try:
-        VacationBuilder().crew().test(n_iterations=int(sys.argv[1]), eval_llm=sys.argv[2], inputs=inputs)
-
-    except Exception as e:
-        raise Exception(f"An error occurred while testing the crew: {e}")
-
-def run_with_trigger():
-    """
-    Run the crew with trigger payload.
-    """
-    import json
-
-    if len(sys.argv) < 2:
-        raise Exception("No trigger payload provided. Please provide JSON payload as argument.")
-
-    try:
-        trigger_payload = json.loads(sys.argv[1])
-    except json.JSONDecodeError:
-        raise Exception("Invalid JSON payload provided as argument")
 
     inputs = {
-        "crewai_trigger_payload": trigger_payload,
-        "topic": "",
-        "current_year": ""
+        "location": location,
+        "origin": origin,
+        "method_of_travel": method_of_travel,
+        "group_size": group_size,
+        "budget": budget,
+        "time_frame": time_frame,
+        "activity_preferences": activity_preferences,
+        "extra_prefrences": extra_prefrences,
     }
 
+    os.makedirs("output", exist_ok=True)
+
     try:
-        result = VacationBuilder().crew().kickoff(inputs=inputs)
-        return result
+       result = VacationBuilder().crew().kickoff(inputs=inputs)
     except Exception as e:
-        raise Exception(f"An error occurred while running the crew with trigger: {e}")
+        raise Exception(f"An error occured while running the crew {e}")
+
+    print("\n\n=== FINAL REPORT ===\n\n")
+    print(result.raw)
+
+if __name__ == "__main__":
+    run()

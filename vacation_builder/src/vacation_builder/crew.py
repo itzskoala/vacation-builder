@@ -1,63 +1,144 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
-# If you want to run a snippet of code before or after the crew starts,
-# you can use the @before_kickoff and @after_kickoff decorators
-# https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
+from crewai_tools import SerperDevTool
+
+from vacation_builder.tools.serper_tools import (
+    GoogleFlightsTool,
+    GoogleHotelsTool,
+    GoogleImagesTool,
+    GoogleEventsTool,
+)
+from vacation_builder.push import PushNotificationTool
+
+#annotations
+agents: list[BaseAgent] 
+tasks: list[Task]
 
 @CrewBase
 class VacationBuilder():
     """VacationBuilder crew"""
 
-    agents: list[BaseAgent]
-    tasks: list[Task]
-
-    # Learn more about YAML configuration files here:
-    # Agents: https://docs.crewai.com/concepts/agents#yaml-configuration-recommended
-    # Tasks: https://docs.crewai.com/concepts/tasks#yaml-configuration-recommended
-    
-    # If you would like to add tools to your agents, you can learn more about it here:
-    # https://docs.crewai.com/concepts/agents#agent-tools
     @agent
-    def researcher(self) -> Agent:
+    def trip_input_resolver(self) -> Agent:
         return Agent(
-            config=self.agents_config['researcher'], # type: ignore[index]
-            verbose=True
+            config=self.agents_config['trip_input_resolver'],  # type: ignore[index]
+            verbose=True,
+            tools=[SerperDevTool()],
         )
 
     @agent
-    def reporting_analyst(self) -> Agent:
+    def plane_ticket_research(self) -> Agent:
         return Agent(
-            config=self.agents_config['reporting_analyst'], # type: ignore[index]
-            verbose=True
+            config=self.agents_config['plane_ticket_research'],  # type: ignore[index]
+            verbose=True,
+            tools=[GoogleFlightsTool(), SerperDevTool()],
         )
 
-    # To learn more about structured task outputs,
-    # task dependencies, and task callbacks, check out the documentation:
-    # https://docs.crewai.com/concepts/tasks#overview-of-a-task
+    @agent
+    def financial_advisor(self) -> Agent:
+        return Agent(
+            config=self.agents_config['financial_advisor'],  # type: ignore[index]
+            verbose=True,
+            tools=[SerperDevTool()],
+        )
+
+    @agent
+    def activities_planner(self) -> Agent:
+        return Agent(
+            config=self.agents_config['activities_planner'],  # type: ignore[index]
+            verbose=True,
+            tools=[GoogleEventsTool(), SerperDevTool()],
+        )
+
+    @agent
+    def accommodations_finder(self) -> Agent:
+        return Agent(
+            config=self.agents_config['accommodations_finder'],  # type: ignore[index]
+            verbose=True,
+            tools=[GoogleHotelsTool(), SerperDevTool()],
+        )
+
+    @agent
+    def photographer(self) -> Agent:
+        return Agent(
+            config=self.agents_config['photographer'],  # type: ignore[index]
+            verbose=True,
+            tools=[GoogleImagesTool()],
+        )
+
+    @agent
+    def vacation_compiler(self) -> Agent:
+        return Agent(
+            config=self.agents_config['vacation_compiler'],  # type: ignore[index]
+            verbose=True,
+        )
+
+    @agent
+    def trip_storyteller(self) -> Agent:
+        return Agent(
+            config=self.agents_config['trip_storyteller'],  # type: ignore[index]
+            verbose=True,
+            tools=[],
+        )
+
+    # Tasks
+
     @task
-    def research_task(self) -> Task:
+    def resolve_inputs_task(self) -> Task:
         return Task(
-            config=self.tasks_config['research_task'], # type: ignore[index]
+            config=self.tasks_config['resolve_inputs_task'],  # type: ignore[index]
         )
 
     @task
-    def reporting_task(self) -> Task:
+    def flight_research_task(self) -> Task:
         return Task(
-            config=self.tasks_config['reporting_task'], # type: ignore[index]
-            output_file='report.md'
+            config=self.tasks_config['flight_research_task'],  # type: ignore[index]
         )
 
+    @task
+    def budget_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['budget_task'],  # type: ignore[index]
+        )
+
+    @task
+    def activities_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['activities_task'],  # type: ignore[index]
+        )
+
+    @task
+    def accommodations_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['accommodations_task'],  # type: ignore[index]
+        )
+
+    @task
+    def photo_curation_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['photo_curation_task'],  # type: ignore[index]
+        )
+
+    @task
+    def final_package_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['final_package_task'],  # type: ignore[index]
+        )
+
+    @task
+    def storytelling_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['storytelling_task'],  # type: ignore[index]
+        )
+
+    # Crew
     @crew
     def crew(self) -> Crew:
         """Creates the VacationBuilder crew"""
-        # To learn how to add knowledge sources to your crew, check out the documentation:
-        # https://docs.crewai.com/concepts/knowledge#what-is-knowledge
-
         return Crew(
-            agents=self.agents, # Automatically created by the @agent decorator
-            tasks=self.tasks, # Automatically created by the @task decorator
+            agents=self.agents,   # auto-collected via @agent decorators
+            tasks=self.tasks,     # auto-collected via @task decorators
             process=Process.sequential,
             verbose=True,
-            # process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
         )
